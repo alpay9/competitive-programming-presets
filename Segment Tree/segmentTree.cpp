@@ -17,7 +17,7 @@ private:
         treeNode(int start, int end, ll val, treeNode* left = nullptr, treeNode* right = nullptr) : start(start), end(end), val(val), left(left), right(right) {}
     };
     treeNode* build(const vector<int>& vals, int start, int end) {
-        if (left == right) return new treeNode(start, start, vals[start]);
+        if (start == end) return new treeNode(start, start, vals[start]);
         treeNode* left = build(vals, start, (start + end) / 2);
         treeNode* right = build(vals, (start + end) / 2 + 1, end);
         return new treeNode(start, end, calculate_val(left->val, right->val), left, right);
